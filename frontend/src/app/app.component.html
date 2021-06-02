@@ -1,0 +1,20 @@
+<div *ngFor='let message of chatMessages' class='messages-page'>
+        <mat-card [ngClass]="{'user-class': !message.isBot, 'bot-card': message.isBot }">
+            <div class="msg-wrapper">
+                <div class="title-wrapper">
+                    <span *ngIf=!message.isBot class="user-title">{{message.userName}}</span>
+                    <span *ngIf=message.isBot class="bot-title" >Bot</span>
+                    <p *ngIf=!message.isBot class="user-msg">{{message.text}}</p>
+                    <p *ngIf=message.isBot class="bot-msg" >{{message.text}}</p>
+                </div>
+                <span class="time">
+                    {{timeFormater(message.date)}}
+                </span>
+            </div>
+        </mat-card>
+
+        <br>
+</div>
+
+
+
